@@ -1,5 +1,3 @@
-require 'pry'
-
 def check_if_user_gave_input
   abort("Vous devez entrez le nom du fichier \n Ce nom dois être en un seul mot") if (ARGV.empty? || ARGV.size >1)
 end
@@ -37,6 +35,14 @@ def perform
 	system("rspec --init")
 	system("touch Readme.md")
 	system("echo \"Programme Ruby créé par Thomas FERAL\" >> Readme.md")
+	Dir.chdir("lib")
+	system("touch app.rb")
+	system("echo \"require \'rubocop\'\nrequire \'rspec\'\nrequire \'pry\'\nrequire \'dotenv\'\nrequire \'nokogiri\'\nrequire \'watir\'\nrequire \'launchy\'\" >> app.rb")
+	Dir.chdir("../spec")
+	system("touch app_spec.rb")
+	system("echo \"require_relative \'../lib/app.rb\'\ndescribe \"\" do\n  it \"\" do\n    expect(function(arguments)).to eq(result)\n  end\nend\" >> app_spec.rb")
+
+
 end
 
 
