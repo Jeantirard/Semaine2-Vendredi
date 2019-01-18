@@ -9,7 +9,7 @@ def perform
 	#binding.pry 
 	system("git add . ")
 	system ("git commit -am \"premier commit\" ")
-	system("git remote add origin",ssh)
+	system("git remote add origin","#{ssh}")
 	system("git push orign master")
 end
 
